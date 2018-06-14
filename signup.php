@@ -12,16 +12,23 @@ $db = @mysqli_connect($db_info["ip"], $db_info["user"], $db_info["pwd"], $db_inf
 if(isset($_POST['user']) && isset($_POST['pwd'])){
   $user = $_POST['user'];
   $pwd  = $_POST['pwd'];
-
-  $insert = "insert into users value(null, '$user', '$pwd');";
-  if (mysqli_query($db, $insert)) {
-    echo "<script>alert('注册成功！');location.href='login.php';</script>";
+  $select_user = "select user from users where user = '$user';";
+  if ($result = mysqli_query($db, $select_user)) {
+    $row = mysqli_fetch_assoc($result);
+    echo "<script>alert('该用户名已被使用')</script>";
   }
   else {
-    echo "<script>alert('注册失败！')</script>";
+    $insert = "insert into users value(null, '$user', '$pwd');";
+    if (mysqli_query($db, $insert)) {
+      echo "<script>alert('注册成功！');location.href='login.php';</script>";
+    }
+    else {
+      echo "<script>alert('注册失败！')</script>";
+    }
+    mysqli_close($db);
   }
-  mysqli_close($db);
 }
+
 
 ?>
 
