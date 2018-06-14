@@ -18,10 +18,11 @@ else {
 }
 $num = 0;
 
-if ($result = mysqli_query($db, "select author, target, time, title, message from messages where target = '$user';")) {
+if ($result = mysqli_query($db, "select mid, author, target, time, title, message from messages where target = '$user';")) {
   while ($row = mysqli_fetch_assoc($result)) {
     $messages[] = $row;
     $id = $num + 1;
+    $reply = $messages[$num]['mid'];
     $summary[] = "
       <tr>
         <td>$id</td>
@@ -29,7 +30,7 @@ if ($result = mysqli_query($db, "select author, target, time, title, message fro
         <td>{$messages[$num]['title']}</td>
         <td>{$messages[$num]['time']}</td>
         <td>{$messages[$num]['message']}</td>
-        <td>
+        <td><a href=./reply.php?reply={$messages[$num]['mid']}>回复</a></td>
       </tr>";
     $num++;
   }
@@ -43,6 +44,8 @@ if ($result = mysqli_query($db, "select author, target, time, title, message fro
                 <td width='150'>标题</td>
                 <td width='200'>时间</td>
                 <td>正文</td>
+                <td></td>
+                <td></td>
               </tr>" . $summarys . "</table>";
 }
 else {

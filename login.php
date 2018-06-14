@@ -19,7 +19,7 @@ if(isset($_POST['user']) && isset($_POST['pwd'])){
     $true_pwd = mysqli_fetch_assoc($result)["pwd"];
     mysqli_close($db);
     if ($true_pwd == $pwd) {
-      echo "<script>alert('登录成功');location.href='board.php';</script>";
+      echo "<script>location.href='board.php';</script>";
       session_start();
       $_SESSION['name'] = $user;
     }
