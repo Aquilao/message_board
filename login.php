@@ -9,7 +9,7 @@ $db_info = [
 
 
 
-if(isset($_POST['user']) && isset($_POST['pwd'])){
+if(isset($_POST['user']{3}) && !isset($_POST['user']{10}) && isset($_POST['pwd']{3}) && !isset($_POST['pwd']{10})){
   $user = $_POST['user'];
   $pwd  = $_POST['pwd'];
 
@@ -27,7 +27,6 @@ if(isset($_POST['user']) && isset($_POST['pwd'])){
       echo "<script>alert('登录失败')</script>";
     }
   }
-
 }
 ?>
 
@@ -39,8 +38,8 @@ if(isset($_POST['user']) && isset($_POST['pwd'])){
 <body>
   <h1>Sign In</h1>
   <form action="login.php" method="post">
-    <div> username: <input type="text" name="user"/></div>
-    <div> password: <input type="password" name="pwd"/></div>
+    <div> username: <input type="text" name="user" maxlength="10" placeholder="username"/></div>
+    <div> password: <input type="password" name="pwd" maxlength="10" placeholder="password"/></div>
     <input type="submit" value="sign in"/>
   </br><a href="signup.php">sign up</a>
   </form>

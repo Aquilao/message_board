@@ -21,7 +21,7 @@ if ($result = mysqli_query($db, $select_target)) {
   while ($row = mysqli_fetch_assoc($result)) {
     $target = "{$row['author']}";
     $title = "Re:{$row['title']}";
-    if(isset($_POST['message'])){
+    if(isset($_POST['message']) && !isset($_POST['message']{200})){
       $messages = $_POST['message'];
       $insert = "insert into messages value(NULL, '$author', '$target', '$title', '$messages', now(), '$reply');";
       if (mysqli_query($db, $insert)) {
@@ -56,7 +56,7 @@ if ($result = mysqli_query($db, $select_target)) {
       </tr>
       <tr>
         <td>正文:</td>
-        <td><textarea rows="10" name="message"></textarea></td>
+        <td><textarea rows="10" name="message" maxlength="200" placeholder="maxlength is 200"></textarea></td>
       </tr>
       <tr>
         <td></td>

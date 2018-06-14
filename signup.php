@@ -9,7 +9,7 @@ $db_info = [
 
 $db = @mysqli_connect($db_info["ip"], $db_info["user"], $db_info["pwd"], $db_info["db"]) or die("Error!");
 
-if(isset($_POST['user']) && isset($_POST['pwd'])){
+if(isset($_POST['user']{3}) && !isset($_POST['user']{10}) && isset($_POST['pwd']{3}) && !isset($_POST['pwd']{10})){
   $user = $_POST['user'];
   $pwd  = $_POST['pwd'];
   $select_user = "select user from users where user = '$user';";
@@ -40,8 +40,8 @@ if(isset($_POST['user']) && isset($_POST['pwd'])){
 <body>
   <h1>Sign UP</h1>
   <form action="./signup.php" method="post">
-    <div> username: <input type="text" name="user"/></div>
-    <div> password: <input type="password" name="pwd"/></div>
+    <div> username: <input type="text" name="user" maxlength="10" placeholder="username"/></div>
+    <div> password: <input type="password" name="pwd" maxlength="10" placeholder="password"/></div>
     <input type="submit" value="sign up"/>
   </form>
 </body>
