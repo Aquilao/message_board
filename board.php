@@ -50,6 +50,7 @@ else {
 <html>
 <head>
   <title>Message Board</title>
+  <meta http-equiv="refresh" content="5">
 </head>
 <body>
   <h1>Your Messages</h1>
