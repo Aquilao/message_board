@@ -26,7 +26,8 @@ if ($result = mysqli_query($db, $select_message)) {
         <td>{$messages[$num]['title']}</td>
         <td>{$messages[$num]['time']}</td>
         <td>{$messages[$num]['message']}</td>
-        <td><a href=./reply.php?reply={$messages[$num]['mid']}>回复</a></td>
+        <td><a href=reply.php?reply={$messages[$num]['mid']}>回复</a></td>
+        <td><a href=delete.php?delete={$messages[$num]['mid']}>删除</a></td>
       </tr>";
     $num++;
   }

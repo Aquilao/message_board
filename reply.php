@@ -10,7 +10,7 @@ else{
   echo "<script>alert('您还未登录！');location.href='login.php'</script>";
 }
 $reply = $_GET['reply'];
-$select_target = "select author, title from messages where mid = $reply";
+$select_target = "select author, title from messages where mid = '$reply'";
 if ($result = mysqli_query($db, $select_target)) {
   while ($row = mysqli_fetch_assoc($result)) {
     $target = "{$row['author']}";
