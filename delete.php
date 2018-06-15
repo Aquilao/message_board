@@ -12,7 +12,6 @@ else{
 
 $delete = $_GET['delete'];
 $delete_message = "delete from messages where mid = '$delete'";
-
 if (mysqli_query($db, $delete_message)) {
   echo "<script>alert('删除成功！');location.href='board.php'</script>";
 }
