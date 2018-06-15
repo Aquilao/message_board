@@ -3,28 +3,28 @@
 include_once("connect.php");
 
 session_start();
+# 判断是否登录
 if(@$author = $_SESSION['name']){
 }
 else{
   echo "<script>alert('您还未登录！');location.href='login.php';</script>";
 }
 
-if(isset($_POST['title']) && !isset($_POST['title']{15}) && isset($_POST['target']) && !isset($_POST['target']{10}) && isset($_POST['message']) && !isset($_POST['message']{200})){
+# 标题、正文长度控制
+if(isset($_POST['title']) && !isset($_POST['title']{15}) && !isset($_POST['target']{10}) && isset($_POST['message']) && !isset($_POST['message']{200})){
   $title    = $_POST['title'];
   $target   = $_POST['target'];
   $messages = $_POST['message'];
   $reply    = "NULL";
-  $insert = "insert into messages value(NULL, '$author', '$target', '$title', '$messages', now(), $reply);";
-  if (mysqli_query($db, $insert)) {
-    echo "<script>alert('留言成功！');location.href='board.php';</script>";
+  $insert = "insert into messages value(NULL, '$author', '$target', '$title', '$messages', now(), $reply)";
+  if (mysqli_query($db, $insert)) {                                             # 插入 message
+    echo "<script>alert('留言成功！');location.href='board.php'</script>";
   }
   else {
     echo "<script>alert('留言失败！')</script>";
   }
   mysqli_close($db);
 }
-
-
 ?>
 
 <html>
@@ -46,9 +46,10 @@ if(isset($_POST['title']) && !isset($_POST['title']{15}) && isset($_POST['target
         <td>
           <select name="target">
           <?php
+          # 在下拉列表中输出除自己以外的用户名
           $num = 0;
           $author = $_SESSION['name'];
-          $select_target = "select user from users where user != '$author';";
+          $select_target = "select user from users where user != '$author'";
           if ($result = mysqli_query($db, $select_target)) {
             while ($row = mysqli_fetch_assoc($result)) {
               $options[] = $row;
@@ -70,7 +71,6 @@ if(isset($_POST['title']) && !isset($_POST['title']{15}) && isset($_POST['target
       <tr>
         <td></td>
         <td><input type="submit" value="submit"/>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <input type="reset" value="reset"/></td>
       </tr>
     </table>

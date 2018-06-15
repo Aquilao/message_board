@@ -1,17 +1,20 @@
 <?php
 
 include_once("connect.php");
-session_start();
 
+session_start();
+# 判断是否登录
 if(@$user = $_SESSION['name']){
   $welcome = "Welcome $user!";
 }
 else {
-  echo "<script>alert('您还未登录！');location.href='login.php';</script>";
+  echo "<script>alert('您还未登录！');location.href='login.php'</script>";
 }
-$num = 0;
+$num = 0;                                                                       # 留言条数
+$select_message = "select mid, author, target, time, title, message from messages where target = '$user'";
 
-if ($result = mysqli_query($db, "select mid, author, target, time, title, message from messages where target = '$user';")) {
+# 查询并逐条显示留言
+if ($result = mysqli_query($db, $select_message)) {
   while ($row = mysqli_fetch_assoc($result)) {
     $messages[] = $row;
     $id = $num + 1;

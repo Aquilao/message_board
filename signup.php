@@ -2,18 +2,19 @@
 
 include_once("connect.php");
 
+# 用户名、密码长度控制
 if(isset($_POST['user']{3}) && !isset($_POST['user']{10}) && isset($_POST['pwd']{3}) && !isset($_POST['pwd']{10})){
   $user = $_POST['user'];
   $pwd  = $_POST['pwd'];
-  $select_user = "select user from users where user = '$user';";
-  if ($result = mysqli_query($db, $select_user)) {
+  $select_user = "select user from users where user = '$user'";
+  if ($result = mysqli_query($db, $select_user)) {                              # 判断是否重名
     $row = mysqli_fetch_assoc($result);
     echo "<script>alert('该用户名已被使用')</script>";
   }
   else {
-    $insert = "insert into users value(null, '$user', '$pwd');";
+    $insert = "insert into users value(null, '$user', '$pwd')";                 # 注册用户
     if (mysqli_query($db, $insert)) {
-      echo "<script>alert('注册成功！');location.href='login.php';</script>";
+      echo "<script>alert('注册成功！');location.href='login.php'</script>";
     }
     else {
       echo "<script>alert('注册失败！')</script>";
@@ -21,8 +22,6 @@ if(isset($_POST['user']{3}) && !isset($_POST['user']{10}) && isset($_POST['pwd']
     mysqli_close($db);
   }
 }
-
-
 ?>
 
 <html>

@@ -2,16 +2,17 @@
 
 include_once("connect.php");
 
+# 用户名、密码长度控制
 if(isset($_POST['user']{3}) && !isset($_POST['user']{10}) && isset($_POST['pwd']{3}) && !isset($_POST['pwd']{10})){
   $user = $_POST['user'];
   $pwd  = $_POST['pwd'];
-
-  if($result = mysqli_query($db, "select pwd from users where user = '$user';")){
+  $select_pwd = "select pwd from users where user = '$user'";
+  if($result = mysqli_query($db, $select_pwd)){                                 # 查询数据库中密码
     $true_pwd = mysqli_fetch_assoc($result)["pwd"];
     mysqli_close($db);
-    if ($true_pwd == $pwd) {
-      echo "<script>location.href='board.php';</script>";
-      session_start();
+    if ($true_pwd == $pwd) {                                                    # 验证密码
+      echo "<script>location.href='board.php'</script>";
+      session_start();                                                          # 开始会话
       $_SESSION['name'] = $user;
     }
     else {
