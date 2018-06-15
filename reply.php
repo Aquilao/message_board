@@ -33,6 +33,7 @@ if ($result = mysqli_query($db, $select_target)) {
 <html>
 <head>
   <title>Send Message</title>
+  <link href="style/send.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>

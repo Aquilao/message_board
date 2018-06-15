@@ -30,6 +30,7 @@ if(isset($_POST['title']) && !isset($_POST['title']{15}) && isset($_POST['target
 <html>
 <head>
   <title>Send Message</title>
+    <link href="style/send.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -43,7 +44,6 @@ if(isset($_POST['title']) && !isset($_POST['title']{15}) && isset($_POST['target
       <tr>
         <td>收件人:</td>
         <td>
-          <!--<input type="text" name="target"/></td>-->
           <select name="target">
           <?php
           $num = 0;
