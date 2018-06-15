@@ -7,7 +7,7 @@ session_start();
 if(@$author = $_SESSION['name']){
 }
 else{
-  echo "<script>alert('您还未登录！');location.href='login.php';</script>";
+  echo "<script>alert('您还未登录！');location.href='login.php'</script>";
 }
 
 # 标题、正文长度控制
