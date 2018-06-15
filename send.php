@@ -11,7 +11,7 @@ else{
 }
 
 # 标题、正文长度控制
-if(isset($_POST['title']) && !isset($_POST['title']{15}) && !isset($_POST['target']{10}) && isset($_POST['message']) && !isset($_POST['message']{200})){
+if(isset($_POST['title']{0}) && !isset($_POST['title']{15}) && !isset($_POST['target']{10}) && isset($_POST['message']{0}) && !isset($_POST['message']{200})){
   $title    = $_POST['title'];
   $target   = $_POST['target'];
   $messages = $_POST['message'];

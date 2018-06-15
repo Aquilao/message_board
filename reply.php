@@ -21,7 +21,7 @@ if ($result = mysqli_query($db, $select_target)) {
     else {
       $title = "Re:" . $title;
     }
-    if(isset($_POST['message']) && !isset($_POST['message']{200})){             # 正文长度控制
+    if(isset($_POST['message']{0}) && !isset($_POST['message']{200})){             # 正文长度控制
       $messages = $_POST['message'];
       $insert = "insert into messages value(NULL, '$author', '$target', '$title', '$messages', now(), '$reply')";
       if (mysqli_query($db, $insert)) {
