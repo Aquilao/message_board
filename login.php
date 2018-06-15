@@ -1,19 +1,10 @@
 <?php
 
-$db_info = [
-  "ip"   => "127.0.0.1",
-  "user" => "root",
-  "pwd"  => "",
-  "db"   => "message_board"
-];
-
-
+include_once("connect.php");
 
 if(isset($_POST['user']{3}) && !isset($_POST['user']{10}) && isset($_POST['pwd']{3}) && !isset($_POST['pwd']{10})){
   $user = $_POST['user'];
   $pwd  = $_POST['pwd'];
-
-  $db = @mysqli_connect($db_info["ip"], $db_info["user"], $db_info["pwd"], $db_info["db"]) or die("Error!");
 
   if($result = mysqli_query($db, "select pwd from users where user = '$user';")){
     $true_pwd = mysqli_fetch_assoc($result)["pwd"];
