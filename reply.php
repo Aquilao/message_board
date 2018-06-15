@@ -13,7 +13,10 @@ $select_target = "select author, title from messages where mid = $reply;";
 if ($result = mysqli_query($db, $select_target)) {
   while ($row = mysqli_fetch_assoc($result)) {
     $target = "{$row['author']}";
-    $title = "Re:{$row['title']}";
+    $title = "{$row['title']}";
+    if ("Re:" == substr($row['title'], 0, 3)) {
+      $title = "reply";
+    }
     if(isset($_POST['message']) && !isset($_POST['message']{200})){
       $messages = $_POST['message'];
       $insert = "insert into messages value(NULL, '$author', '$target', '$title', '$messages', now(), '$reply');";

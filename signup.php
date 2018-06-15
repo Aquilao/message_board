@@ -27,7 +27,7 @@ if(isset($_POST['user']{3}) && !isset($_POST['user']{10}) && isset($_POST['pwd']
 
 <html>
 <head>
-  <title>User Login</title>
+  <title>Sign Up</title>
   <link href="style/login.css" rel="stylesheet" type="text/css">
 </head>
 
