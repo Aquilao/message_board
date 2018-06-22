@@ -22,7 +22,7 @@ if ($result = mysqli_query($db, $select_target)) {
       $title = "Re:" . $title;
     }
     if(isset($_POST['message']{0}) && !isset($_POST['message']{200})){             # 正文长度控制
-      $messages = $_POST['message'];
+      $messages = htmlspecialchars($_POST['message'], ENT_QUOTES);
       $insert = "insert into messages value(NULL, '$author', '$target', '$title', '$messages', now(), '$reply')";
       if (mysqli_query($db, $insert)) {
         echo "<script>alert('留言成功！');location.href='board.php'</script>";

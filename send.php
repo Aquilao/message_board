@@ -12,9 +12,9 @@ else{
 
 # 标题、正文长度控制
 if(isset($_POST['title']{0}) && !isset($_POST['title']{15}) && !isset($_POST['target']{10}) && isset($_POST['message']{0}) && !isset($_POST['message']{200})){
-  $title    = $_POST['title'];
+  $title    = htmlspecialchars($_POST['title'], ENT_QUOTES);
   $target   = $_POST['target'];
-  $messages = $_POST['message'];
+  $messages = htmlspecialchars($_POST['message'], ENT_QUOTES);
   $reply    = "NULL";
   $insert = "insert into messages value(NULL, '$author', '$target', '$title', '$messages', now(), $reply)";
   if (mysqli_query($db, $insert)) {                                             # 插入 message
