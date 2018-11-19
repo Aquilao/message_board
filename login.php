@@ -33,8 +33,8 @@ if(isset($_POST['user']{3}) && !isset($_POST['user']{10}) && isset($_POST['pwd']
   <form action="login.php" method="post">
     <div> <input type="text" name="user" maxlength="10" placeholder="username"/></div>
     <div> <input type="password" name="pwd" maxlength="10" placeholder="password"/></div>
-    <div> <input type="submit" value="sign in"/></div>
-    <div> <a href="signup.php">sign up</a></div>
+    <div> <button type="submit">sign in</button></div>
+    <div> or <a href="signup.php">sign up</a></div>
   </form>
 </body>
 </html>
