@@ -1,6 +1,7 @@
 h1 {
-  font-size: 60px;
+  font-size: 80px;
   text-align: center;
+  font-family: "zing_script";
 }
 
 div {
@@ -15,6 +16,7 @@ body {
 input, button {
   margin: 10px auto;
   font-size: 24px;
+  font-family: 'WeiRuanYaHei';
   width: 300px;
   height: 50px;
   border: 3px solid #ccc;
@@ -25,11 +27,22 @@ input {
     padding-left: 20px;
 }
 
-input:focus {
+input,button:focus {
   border-color: #868686;
   outline: 0;
 }
 
 a {
+  font-family: 'WeiRuanYaHei';
   color: #868686;
+}
+
+@font-face {
+  font-family: 'zing_script';
+  src: url('../fonts/Zing-Script-Rust-SemiBold-Demo-Base-2.otf');
+}
+
+@font-face {
+  font-family: 'WeiRuanYaHei';
+  src: url('../fonts/WeiRuanYaHei-1.ttf');
 }

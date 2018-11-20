@@ -36,12 +36,12 @@ if ($result = mysqli_query($db, $select_message)) {
 
   $table = "<table>
               <tr>
-                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
                 <td width='150'>发件人</td>
                 <td width='150'>标题</td>
-                <td width='200'>时间</td>
-                <td>正文</td>
-                <td></td>
+                <td width='300'>时间</td>
+                <td width='300'>正文</td>
+                <td width=100></td>
                 <td></td>
               </tr>" . $summarys . "</table>";
 }
@@ -59,8 +59,8 @@ else {
 </head>
 <body>
   <h1>Your Messages</h1>
-  <pre><?php echo "$welcome</br>"; echo "当前您有 $num 条留言";echo "$table";?></pre>
-  <a href="./send.php">send message</a>
-  <a href="./logout.php">logout</a>
+  <pre><?php echo "$welcome</br></br>"; echo "当前您有 $num 条留言";echo "$table";?></pre>
+  <button type="button" name="button"><a href="./send.php">send message</a></button>
+  <button type="button" name="button"><a href="./logout.php">logout</a></button>
 </body>
 </html>
