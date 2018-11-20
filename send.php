@@ -38,11 +38,11 @@ if(isset($_POST['title']{0}) && !isset($_POST['title']{15}) && !isset($_POST['ta
   <form action="send.php" method="post">
     <table>
       <tr>
-        <td>标题:</td>
+        <td>Title:</td>
         <td><input type="text" name="title" maxlength="12"/></td>
       </tr>
       <tr>
-        <td>收件人:</td>
+        <td>To:</td>
         <td>
           <select name="target">
           <?php
@@ -65,13 +65,14 @@ if(isset($_POST['title']{0}) && !isset($_POST['title']{15}) && !isset($_POST['ta
         </td>
       </tr>
       <tr>
-        <td>正文:</td>
+        <td>text:</td>
         <td><textarea rows="10" name="message" maxlength="200" placeholder="maxlength is 200"></textarea></td>
       </tr>
       <tr>
         <td></td>
-        <td><input type="submit" value="submit"/>
-          <input type="reset" value="reset"/></td>
+        <td><button type="submit">submit</button>
+            <button type="reset">reset</button>
+        </td>
       </tr>
     </table>
     <a href="./board.php">message board</a>

@@ -1,6 +1,11 @@
+h1 {
+  font-family: 'zing_script';
+}
+
 body{
   margin: 5% 5%;
   font-size: 24px;
+  font-family: 'WeiRuanYaHei';
 }
 
 table {
@@ -9,16 +14,32 @@ table {
 
 a {
   margin: 0 5%;
+  color: #868686;
 }
 
-input {
-  font-size: 24px;
+input,textarea {
+    padding-left: 20px;
 }
 
-select {
+input,button,textarea,select,option {
+  margin: 10px auto;
   font-size: 24px;
+  font-family: 'WeiRuanYaHei';
+  border: 3px solid #ccc;
+  border-radius: 9px;
 }
 
-textarea {
-  font-size: 24px;
+input:focus,button:focus,textarea:focus,select:focus {
+  border-color: #868686;
+  outline: 0;
+}
+
+@font-face {
+  font-family: 'zing_script';
+  src: url('../fonts/Zing-Script-Rust-SemiBold-Demo-Base-2.otf');
+}
+
+@font-face {
+  font-family: 'WeiRuanYaHei';
+  src: url('../fonts/WeiRuanYaHei-1.ttf');
 }
