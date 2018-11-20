@@ -26,8 +26,8 @@ if ($result = mysqli_query($db, $select_message)) {
         <td>{$messages[$num]['title']}</td>
         <td>{$messages[$num]['time']}</td>
         <td>{$messages[$num]['message']}</td>
-        <td><a href=reply.php?reply={$messages[$num]['mid']}>回复</a></td>
-        <td><a href=delete.php?delete={$messages[$num]['mid']}>删除</a></td>
+        <td><a href=reply.php?reply={$messages[$num]['mid']}>Reply</a></td>
+        <td><a href=delete.php?delete={$messages[$num]['mid']}>Delete</a></td>
       </tr>";
     $num++;
   }
@@ -36,11 +36,11 @@ if ($result = mysqli_query($db, $select_message)) {
 
   $table = "<table>
               <tr>
-                <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
-                <td width='150'>发件人</td>
-                <td width='150'>标题</td>
-                <td width='300'>时间</td>
-                <td width='300'>正文</td>
+                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                <td width='150'>From</td>
+                <td width='150'>title</td>
+                <td width='300'>time</td>
+                <td width='200'>text</td>
                 <td width=100></td>
                 <td></td>
               </tr>" . $summarys . "</table>";
@@ -59,8 +59,8 @@ else {
 </head>
 <body>
   <h1>Your Messages</h1>
-  <pre><?php echo "$welcome</br></br>"; echo "当前您有 $num 条留言";echo "$table";?></pre>
-  <button type="button" name="button"><a href="./send.php">send message</a></button>
-  <button type="button" name="button"><a href="./logout.php">logout</a></button>
+  <pre><?php echo "$welcome</br>"; echo "You have $num messages.</br>";echo "$table";?></pre>
+  <button type="button" name="button"><a href="./send.php" class="button">send message</a></button>
+  <button type="button" name="button"><a href="./logout.php" class="button">logout</a></button>
 </body>
 </html>

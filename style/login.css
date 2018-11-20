@@ -27,7 +27,7 @@ input {
     padding-left: 20px;
 }
 
-input,button:focus {
+input:focus,button:focus {
   border-color: #868686;
   outline: 0;
 }
