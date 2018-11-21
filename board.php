@@ -36,12 +36,12 @@ if ($result = mysqli_query($db, $select_message)) {
 
   $table = "<table>
               <tr>
-                <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                <td width='50'></td>
                 <td width='150'>From</td>
                 <td width='150'>title</td>
-                <td width='300'>time</td>
-                <td width='200'>text</td>
-                <td width=100></td>
+                <td width='200'>time</td>
+                <td width='300'>text</td>
+                <td width='100'></td>
                 <td></td>
               </tr>" . $summarys . "</table>";
 }
@@ -58,9 +58,11 @@ else {
   <meta http-equiv="refresh" content="5">
 </head>
 <body>
+  <div>
   <h1>Your Messages</h1>
-  <pre><?php echo "$welcome</br>"; echo "You have $num messages.</br>";echo "$table";?></pre>
+  <pre><?php echo "$welcome</br>"; echo "You have $num messages.</br><hr>";echo "$table";?></pre>
   <button type="button" name="button"><a href="./send.php" class="button">send message</a></button>
   <button type="button" name="button"><a href="./logout.php" class="button">logout</a></button>
+</div>
 </body>
 </html>

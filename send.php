@@ -34,6 +34,7 @@ if(isset($_POST['title']{0}) && !isset($_POST['title']{15}) && !isset($_POST['ta
 </head>
 
 <body>
+  <div>
   <h1>Send Message</h1>
   <form action="send.php" method="post">
     <table>
@@ -78,5 +79,6 @@ if(isset($_POST['title']{0}) && !isset($_POST['title']{15}) && !isset($_POST['ta
     <a href="./board.php">message board</a>
     <a href="./logout.php">logout</a>
   </form>
+  </div>
 </body>
 </html>

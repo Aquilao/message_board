@@ -44,29 +44,32 @@ if ($result = mysqli_query($db, $select_target)) {
 </head>
 
 <body>
+  <div>
   <h1>Send Message</h1>
   <form action="reply.php?reply=<?php echo "$reply"?>" method="post">
     <table>
       <tr>
-        <td>标题:</td>
-        <td><?php echo "{$title}"; ?></td>
+        <td>Title:</td>
+        <td><pre><?php echo "{$title}"; ?></pre></td>
       </tr>
       <tr>
-        <td>收件人:</td>
-        <td><?php echo "{$target}"; ?></td>
+        <td>To:</td>
+        <td><pre><?php echo "{$target}"; ?></pre></td>
       </tr>
       <tr>
-        <td>正文:</td>
+        <td>Text:</td>
         <td><textarea rows="10" name="message" maxlength="200" placeholder="maxlength is 200"></textarea></td>
       </tr>
       <tr>
         <td></td>
-        <td><input type="submit" value="submit"/>
-          <input type="reset" value="reset"/></td>
+        <td><button type="submit">submit</button>
+            <button type="reset">reset</button>
+        </td>
       </tr>
     </table>
     <a href="./board.php">message board</a>
     <a href="./logout.php">logout</a>
   </form>
+</div>
 </body>
 </html>
