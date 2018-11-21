@@ -61,8 +61,8 @@ else {
   <div>
   <h1>Your Messages</h1>
   <pre><?php echo "$welcome</br>"; echo "You have $num messages.</br><hr>";echo "$table";?></pre>
-  <button type="button" name="button"><a href="./send.php" class="button">send message</a></button>
-  <button type="button" name="button"><a href="./logout.php" class="button">logout</a></button>
+  <a href="./send.php" class="button"><button type="button" name="button">send message</button></a>
+  <a href="./logout.php" class="button"><button type="button" name="button">logout</button></a>
 </div>
 </body>
 </html>
