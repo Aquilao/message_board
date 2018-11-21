@@ -29,6 +29,7 @@ if(isset($_POST['user']{3}) && !isset($_POST['user']{10}) && isset($_POST['pwd']
 </head>
 
 <body>
+  <div class="block">
   <h1>Sign In</h1>
   <form action="login.php" method="post">
     <div> <input type="text" name="user" maxlength="10" placeholder="username"/></div>
@@ -36,5 +37,6 @@ if(isset($_POST['user']{3}) && !isset($_POST['user']{10}) && isset($_POST['pwd']
     <div> <button type="submit">sign in</button></div>
     <div> or <a href="signup.php">sign up</a></div>
   </form>
+</div>
 </body>
 </html>

@@ -50,11 +50,11 @@ if ($result = mysqli_query($db, $select_target)) {
     <table>
       <tr>
         <td>Title:</td>
-        <td><?php echo "{$title}"; ?></td>
+        <td><pre><?php echo "{$title}"; ?></pre></td>
       </tr>
       <tr>
         <td>To:</td>
-        <td><?php echo "{$target}"; ?></td>
+        <td><pre><?php echo "{$target}"; ?></pre></td>
       </tr>
       <tr>
         <td>Text:</td>
