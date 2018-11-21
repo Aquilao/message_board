@@ -7,7 +7,7 @@ session_start();
 if(@$author = $_SESSION['name']){
 }
 else{
-  echo "<script>alert('Please sign in!');location.href='login.php'</script>";
+  echo "<script>alert('您还未登录！');location.href='login.php'</script>";
 }
 $reply = $_GET['reply'];
 $select_target = "select author, title from messages where mid = '$reply'";
@@ -25,10 +25,10 @@ if ($result = mysqli_query($db, $select_target)) {
       $messages = htmlspecialchars($_POST['message'], ENT_QUOTES);
       $insert = "insert into messages value(NULL, '$author', '$target', '$title', '$messages', now(), '$reply')";
       if (mysqli_query($db, $insert)) {
-        echo "<script>alert('Send message success!');location.href='board.php'</script>";
+        echo "<script>alert('留言成功！');location.href='board.php'</script>";
       }
       else {
-        echo "<script>alert('Send message failed!')</script>";
+        echo "<script>alert('留言失败！')</script>";
       }
       mysqli_close($db);
     }
@@ -44,29 +44,32 @@ if ($result = mysqli_query($db, $select_target)) {
 </head>
 
 <body>
+  <div>
   <h1>Send Message</h1>
   <form action="reply.php?reply=<?php echo "$reply"?>" method="post">
     <table>
       <tr>
-        <td>标题:</td>
+        <td>Title:</td>
         <td><?php echo "{$title}"; ?></td>
       </tr>
       <tr>
-        <td>收件人:</td>
+        <td>To:</td>
         <td><?php echo "{$target}"; ?></td>
       </tr>
       <tr>
-        <td>正文:</td>
+        <td>Text:</td>
         <td><textarea rows="10" name="message" maxlength="200" placeholder="maxlength is 200"></textarea></td>
       </tr>
       <tr>
         <td></td>
-        <td><input type="submit" value="submit"/>
-          <input type="reset" value="reset"/></td>
+        <td><button type="submit">submit</button>
+            <button type="reset">reset</button>
+        </td>
       </tr>
     </table>
     <a href="./board.php">message board</a>
     <a href="./logout.php">logout</a>
   </form>
+</div>
 </body>
 </html>
