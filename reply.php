@@ -7,7 +7,7 @@ session_start();
 if(@$author = $_SESSION['name']){
 }
 else{
-  echo "<script>alert('您还未登录！');location.href='login.php'</script>";
+  echo "<script>alert('Please sign in!');location.href='login.php'</script>";
 }
 $reply = $_GET['reply'];
 $select_target = "select author, title from messages where mid = '$reply'";
@@ -25,10 +25,10 @@ if ($result = mysqli_query($db, $select_target)) {
       $messages = htmlspecialchars($_POST['message'], ENT_QUOTES);
       $insert = "insert into messages value(NULL, '$author', '$target', '$title', '$messages', now(), '$reply')";
       if (mysqli_query($db, $insert)) {
-        echo "<script>alert('留言成功！');location.href='board.php'</script>";
+        echo "<script>alert('Send message success!');location.href='board.php'</script>";
       }
       else {
-        echo "<script>alert('留言失败！')</script>";
+        echo "<script>alert('Send message failed!')</script>";
       }
       mysqli_close($db);
     }
