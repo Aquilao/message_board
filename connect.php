@@ -9,6 +9,4 @@ $db_info = [
 
 $db = @mysqli_connect($db_info["ip"], $db_info["user"], $db_info["pwd"], $db_info["db"]) or die("Error!");
 
-
-
- ?>
+?>
